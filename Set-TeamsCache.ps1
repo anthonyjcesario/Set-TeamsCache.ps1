@@ -2,48 +2,56 @@ Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
 function Set-Form {
+    [CmdletBinding()]
     param(
         [string]$Title,
         [int]$Width,
         [int]$Length
     )
 
-    $BaseWindow = New-Object System.Windows.Forms.Form
-    $BaseWindow.Text = $Title
-    $BaseWindow.Size = New-Object System.Drawing.Size($Width, $Length)
-    $BaseWindow.TopMost = $true
-    $BaseWindow.StartPosition = "CenterScreen"
+    process {
+        $BaseWindow = New-Object System.Windows.Forms.Form
+        $BaseWindow.Text = $Title
+        $BaseWindow.Size = New-Object System.Drawing.Size($Width, $Length)
+        $BaseWindow.TopMost = $true
+        $BaseWindow.StartPosition = "CenterScreen"
 
-    return $BaseWindow
+        return $BaseWindow
+    }
 }
 
 function Set-Label {
+    [CmdletBinding()]
     param(
         [string]$Text,
         [int]$X,
         [int]$Y
     )
 
-    $BaseLabel = New-Object System.Windows.Forms.Label
-    $BaseLabel.Text = $Text
-    $BaseLabel.Location = New-Object System.Drawing.Point($X, $Y)
-    $BaseLabel.AutoSize = $true
-
-    return $BaseLabel
+    process {
+        $BaseLabel = New-Object System.Windows.Forms.Label
+        $BaseLabel.Text = $Text
+        $BaseLabel.Location = New-Object System.Drawing.Point($X, $Y)
+        $BaseLabel.AutoSize = $true
+        return $BaseLabel
+    }
 }
 
 function Set-Button {
+    [CmdletBinding()]
     param(
         [string]$Text,
         [int]$X,
         [int]$Y
     )
 
-    $BaseButton = New-Object System.Windows.Forms.Button
-    $BaseButton.Location = New-Object System.Drawing.Point($X, $Y)
-    $BaseButton.Text = $Text
+    process {
+        $BaseButton = New-Object System.Windows.Forms.Button
+        $BaseButton.Location = New-Object System.Drawing.Point($X, $Y)
+        $BaseButton.Text = $Text
 
-    return $BaseButton
+        return $BaseButton
+    }
 }
 
 
